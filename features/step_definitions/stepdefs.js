@@ -20,3 +20,32 @@ When("I ask whether it's Friday yet", function () {
 Then("I should be told {string}", function (expectedAnswer) {
   assert.strictEqual(this.actualAnswer, expectedAnswer);
 });
+
+let opDict = {
+  1: "Insure",
+  2: "Modify",
+  3: "NewCase",
+};
+function getOpStatus(imgNum, operationName) {
+  if (opDict[imgNum] === operationName) {
+    return "OK";
+  } else {
+    return "Waiting";
+  }
+}
+
+Given(
+  "We get {string} scanned images for certain {string}",
+  function (imgNum, operation) {
+    this.imgNum = imgNum;
+    this.operationName = operation;
+  }
+);
+
+When("I ask whether it's OK", function () {
+  this.actualAnswer = getOpStatus(this.imgNum, this.operationName);
+});
+
+Then("I should get {string}", function (expectedAnswer) {
+  assert.strictEqual(this.actualAnswer, expectedAnswer);
+});
