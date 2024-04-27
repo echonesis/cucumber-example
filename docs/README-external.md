@@ -15,7 +15,7 @@
 ├── [docs]
 ├── [features]
 |      ├── [step_definitions]
-|      |      ├── stepdefs.js       # 功能測試步驟的具體實現，也就是feature檔案中的實現
+|      |      ├── stepdefs.js       # 功能測試步驟(feature)的具體實現
 |      ├── [support]                # 選用，環境配置文件或輔助方法放在這邊
 |      └── *.feature                # 實際規格功能定義檔案
 ├── cucumber.js                     # cucumber執行設定
